@@ -1,6 +1,6 @@
 (function() {
-  var startBookmarklet = function($) {      
-    
+  var startBookmarklet = function($) {
+
     // Set bookmarklet framework
     var scriptSrc  = $("script[src*='gd-bookmarklet.min.js']").attr("src"),
     bmletFramework = scriptSrc.substr(scriptSrc.length - 1, 1);
@@ -12,7 +12,7 @@
     var removeGridDisplayer = function() {
       $("#grid-displayer-tools").remove();
       $("#grid-displayer").remove();
-    },      
+    },
 
     // Build grid displayer
     gdIsBuilt = false,
@@ -152,7 +152,7 @@
       gdOpacity             = (typeof dataGridOpacity === "undefined") ?     "0.3" : dataGridOpacity,
       gdZindex              = (typeof dataGridZindex === "undefined") ?      "999" : dataGridZindex;
 
-      // Frameworks list      
+      // Frameworks list
       bootstraps  = [["b3", "Bootstrap 3"],
                      ["b3f", "Bootstrap 3 (fluid)"],
                      ["bo", "Bootstrap 2"],
@@ -160,31 +160,31 @@
       foundations = [["f4", "Foundation 4 & 5"],
                      ["f3", "Foundation 3"],
                      ["f2", "Foundation 2"]];
-      switch(bmletFramework) {               
+      switch(bmletFramework) {
         case "b":
-          frameworks = bootstraps;           
+          frameworks = bootstraps;
           if (gdFramework == "") {
             gdFramework = "b3";
           }
         break;
-        
+
         case "f":
-          frameworks = foundations;           
+          frameworks = foundations;
           if (gdFramework == "") {
             gdFramework = "f4";
           }
         break;
-        
+
         case "both":
           frameworks = bootstraps.concat(foundations);
         break;
       }
-      
+
       // HTML
       var gridHtml = "<div id=\"grid-displayer\" style=\"display: none;\"><div class=\"gd-container\"><div class=\"gd-row\"></div></div></div>",
       gridToolsHtml = "<div id=\"grid-displayer-tools\">"
                     + "  <div class=\"gdt-field\"><select id=\"gdt-framework\">"
-                    + "    <option>&darr; Choose your framework</option>"; 
+                    + "    <option>&darr; Choose your framework</option>";
       $.each(frameworks, function(index, value) {
         gridToolsHtml += "<option value=\"" + value[0] + "\"";
         gridToolsHtml += (value[0] == gdFramework) ? " selected" : "";
@@ -203,7 +203,7 @@
                     + "  <div class=\"gdt-button\"><a href=\"#null\" id=\"gdt-close\">Close</a></div>"
                     + "</div>";
 
-      $("head").append("<link rel='stylesheet' type='text/css' href='http://alefeuvre.github.com/foundation-grid-displayer/stylesheets/gd-bookmarklet.min.css'>");
+      $("head").append("<link rel='stylesheet' type='text/css' href='https://github.com/on-site/foundation-grid-displayer/stylesheets/gd-bookmarklet.min.css'>");
       $("body").prepend(gridHtml).prepend(gridToolsHtml);
       $("#grid-displayer-tools").delay(1200).fadeTo("slow",0.1);
 
@@ -214,7 +214,7 @@
       // Actions
       $("#grid-displayer-tools #gdt-framework").change(function() {
         if ($(this).val() == "tired") {
-          window.open("http://snipt.net/jiraisurfer/custom-parameters-for-foundation-grid-displayer/");
+          window.open("https://snipt.net/jiraisurfer/custom-parameters-for-foundation-grid-displayer/");
         } else {
           gdFramework = $(this).val();
           gdIsGutterless = (gdFramework == "b3" || gdFramework == "b3f" || gdFramework == "f4" || gdFramework == "f3") ? true : false;
@@ -251,7 +251,7 @@
     var head = document.getElementsByTagName("head")[0],
         jQueryScript = document.createElement("script");
     jQueryScript.type = "text/javascript";
-    jQueryScript.src  = "http://code.jquery.com/jquery-1.10.0.min.js";
+    jQueryScript.src  = "https://code.jquery.com/jquery-1.10.0.min.js";
     jQueryScript.onload = function() { startBookmarklet(window.jQuery); };
     head.appendChild(jQueryScript);
   } else {
@@ -277,7 +277,7 @@
         today=(new Date()).getTime(),
         win = window.location,
         img = new Image(),
-        urchinUrl = 'http://www.google-analytics.com/__utm.gif?utmwv=1.3&utmn='
+        urchinUrl = 'https://www.google-analytics.com/__utm.gif?utmwv=1.3&utmn='
             +utmn+'&utmsr=-&utmsc=-&utmul=-&utmje=0&utmfl=-&utmdt=-&utmhn='
             +domain+'&utmr='+win+'&utmp='
             +url+'&utmac='
