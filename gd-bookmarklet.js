@@ -203,7 +203,7 @@
                     + "  <div class=\"gdt-button\"><a href=\"#null\" id=\"gdt-close\">Close</a></div>"
                     + "</div>";
 
-      $("head").append("<link rel='stylesheet' type='text/css' href='https://github.com/on-site/foundation-grid-displayer/stylesheets/gd-bookmarklet.min.css'>");
+      $("head").append("<link rel='stylesheet' type='text/css' href='https://raw.githubusercontent.com/on-site/foundation-grid-displayer/gh-pages/stylesheets/gd-bookmarklet.min.css'>");
       $("body").prepend(gridHtml).prepend(gridToolsHtml);
       $("#grid-displayer-tools").delay(1200).fadeTo("slow",0.1);
 
